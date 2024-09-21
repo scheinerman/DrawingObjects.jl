@@ -38,8 +38,8 @@ The following functions only pertain to line segments.
 Polygons are created from a list of complex numbers. Either use `Polygon([a, b, c])` or `Polygon(a,b,c)`.
 
 The convenience function `Rectangle` creates an axis-parallel rectangle. 
-* `Rectangle(a,b)` creates a rectangle with opposite corners at `a` and `b` (as complex numbers).
-* `Rectangle(x,y,xx,yy)` creates a rectangle with opposite corners `(x,y)` and `(xx,yy)`. 
+* `Rectangle(a, b)` creates a rectangle with opposite corners at `a` and `b` (as complex numbers).
+* `Rectangle(x, y, xx, yy)` creates a rectangle with opposite corners `(x,y)` and `(xx,yy)`. 
 
 ## Circles
 
