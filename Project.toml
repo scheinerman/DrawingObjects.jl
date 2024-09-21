@@ -1,0 +1,10 @@
+name = "DrawingObjects"
+uuid = "181ca34c-2a10-48bf-95fd-1d96b24e9d97"
+authors = ["Ed Scheinerman <ers@jhu.edu>"]
+version = "0.0.1"
+
+[deps]
+SimpleDrawing = "d78a06e8-ae74-583c-9a07-0d6572347000"
+
+[compat]
+SimpleDrawing = "0.2"
