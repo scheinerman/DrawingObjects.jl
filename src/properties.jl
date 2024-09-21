@@ -49,7 +49,7 @@ set_linecolor!(o::DrawingObject, c = :black) = set_attribute!(o, :linecolor, c)
 
 Assign line width `w` to this object. 
 """
-set_width!(o::DrawingObject, w = 1) = set_attribute!(o, :width, w)
+set_linewidth!(o::DrawingObject, w = 1) = set_attribute!(o, :width, w)
 
 
 """

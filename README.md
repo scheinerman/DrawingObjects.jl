@@ -9,7 +9,7 @@ The following functions apply to all the geometric objects defined in this modul
 
 Each geometric object has attributes that affect how it is drawn. The following methods are provided for setting object attributes:
 * `set_linecolor!(o, c)` assigns the color `c` to `o`. Default: `:black`
-* `set_width!(o, w)` sets the thickness of the lines drawn to be `w`. Default: `1`. 
+* `set_linewidth!(o, w)` sets the thickness of the lines drawn to be `w`. Default: `1`. 
 * `set_linestyle!(o, style)` sets the line style of `o` to `style`. Default: `solid`. 
 
 More generally, use `set_attribute!(o, attr, val)` to set `o`'s attribute `attr` to the value `val`. 
@@ -32,3 +32,11 @@ The following functions only pertain to line segments.
     * `s = Segment(a, b)`
     * `set_attribute!(s, :arrow, true)`
 * `reverse(s)` creates a new line segment with the same end points as `s` but in reverse order. The attributes of `s` are copied to the new segment.
+
+## Polygons
+
+Polygons are created from a list of complex numbers. Either use `Polygon([a, b, c])` or `Polygon(a,b,c)`.
+
+The convenience function `Rectangle` creates an axis-parallel rectangle. 
+* `Rectangle(a,b)` creates a rectangle with opposite corners at `a` and `b` (as complex numbers).
+* `Rectangle(x,y,xx,yy)` creates a rectangle with opposite corners `(x,y)` and `(xx,yy)`. 
