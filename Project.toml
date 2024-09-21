@@ -5,6 +5,8 @@ version = "0.0.1"
 
 [deps]
 SimpleDrawing = "d78a06e8-ae74-583c-9a07-0d6572347000"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
 
 [compat]
 SimpleDrawing = "0.2"
