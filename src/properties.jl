@@ -16,7 +16,7 @@ function reset_attributes!(o::DrawingObject)
     for k in keys(o.props)
         delete!(o.props, k)
     end
-    
+
     d = _default_props()
     for k in keys(d)
         o.props[k] = d[k]

@@ -22,9 +22,10 @@ show(io::IO, s::Segment) = print(io, "Segment($(s.a), $(s.b))")
 
 """
     reverse(s::Segment)::Segment
+    reverse(a::Arc)::Arc
 
-Create a new line segment with the same end points as `s` but in reverse order. The attributes of `s`
-are copied to the new segment. 
+Create a new line segment [arc] with the same end points as `s` [`a`] but in reverse order. The attributes of `s`
+are copied to the new segment [arc]. 
 """
 function reverse(s::Segment)::Segment
     ss = Segment(s.b, s.a)

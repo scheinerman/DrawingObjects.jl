@@ -5,10 +5,13 @@ import SimpleDrawing: draw, reverse
 import Base: show
 
 export DrawingObject,
+    Arc,
     Arrow,
     Circle,
+    ClosedCurve,
     Disc,
     Disk,
+    OpenCurve,
     Polygon,
     Rectangle,
     Segment,
@@ -27,6 +30,7 @@ include("properties.jl")
 include("segments.jl")
 include("polygons.jl")
 include("circles.jl")
+include("curves.jl")
 
 
 end # module DrawingObjects
