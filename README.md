@@ -40,3 +40,17 @@ Polygons are created from a list of complex numbers. Either use `Polygon([a, b, 
 The convenience function `Rectangle` creates an axis-parallel rectangle. 
 * `Rectangle(a,b)` creates a rectangle with opposite corners at `a` and `b` (as complex numbers).
 * `Rectangle(x,y,xx,yy)` creates a rectangle with opposite corners `(x,y)` and `(xx,yy)`. 
+
+## Circles
+
+Circles are created from a center and a radius:
+* `Circle(z, r)` is the circle centered at (complex) `z` with radius `r`. 
+* `Circle(x, y, r)` is the circle centered at `(x,y)` with radius `r`. 
+
+Disks are filled circles. That is, their interior is an opaque color. Like circles, create with one of these:
+* `Disk(z, r)`
+* `Disk(x, y, r)`
+
+The function `set_fillcolor!` can be used to change the interior color of the disk. 
+
+The symbol `Disc` is a synonmy for `Disk`.

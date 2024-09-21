@@ -3,19 +3,25 @@
 function _default_props()
     d = Dict{Symbol,Any}()
     d[:linecolor] = :black
+    d[:color] = :white
     return d
 end
 
 """
     reset_attributes!(o::DrawingObject)
 
-Clear all attributes from `o`, except keep color set to `:black`.
+Reset all attributes to factory defaults. 
 """
 function reset_attributes!(o::DrawingObject)
     for k in keys(o.props)
         delete!(o.props, k)
     end
-    set_linecolor!(o)
+    
+    d = _default_props()
+    for k in keys(d)
+        o.props[k] = d[k]
+    end
+
     nothing
 end
 
