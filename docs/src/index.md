@@ -54,3 +54,14 @@ Disks are filled circles. That is, their interior is an opaque color. Like circl
 The function `set_fillcolor!` can be used to change the interior color of the disk. 
 
 The symbol `Disc` is a synonmy for `Disk`.
+
+Arcs of circles are created thus:
+* `Arc(z, r, t1, t2)` creates an arc of a circle centered at `z` with radius `r` running from angle `t1` to angle `t2`. 
+* `Arc(x, y, r, t1, t2)` likewise. 
+
+The `reverse` function may be applied to `Arc`s. 
+
+## Curves
+
+The functions `ClosedCurve` and `OpenCurve` create curves from a list of points (just like `Polygon`). 
+The curves are cubic splines through those points. 
