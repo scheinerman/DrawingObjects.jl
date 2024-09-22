@@ -22,7 +22,11 @@ The objects that can be viewed are as follows:
 
 ## Common Methods
 
-The following functions apply to all the geometric objects defined in this module. First and foremost is `draw` which causes the object to be drawn on the screen.
+### Drawing
+
+The following functions apply to all the geometric objects defined in this module. First and foremost is `draw` which causes the object to be drawn on the screen. The `draw` function may be applied to a list of objects in which case each object in the list is drawn in the order presented.
+
+### Object attributes
 
 Each `DrawingObject` has attributes that affect how it is drawn. The following methods are provided for setting object attributes:
 * `set_linecolor!(o, c)` assigns the line color `c` to `o`. Default: `:black`
