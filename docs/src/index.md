@@ -18,6 +18,9 @@ Use `reset_attributes!(o)` to return `o` to its "factory default" attributes. Sp
 
 The function `get_attributes(o)` returns a view into `o`'s attribute dictionary which can then be directly manipulated (if you dare).
 
+Note that these functions generally do not apply to `Point`s which instead rely on:
+`set_pointsize!` and `set_pointcolor!`. See the section on `Point`s below. 
+
 More information on object attributes can be found in the [Plots](https://docs.juliaplots.org/stable/generated/attributes_series/) documentation. 
 
 
@@ -41,7 +44,7 @@ The convenience function `Rectangle` creates an axis-parallel rectangle.
 * `Rectangle(a, b)` creates a rectangle with opposite corners at `a` and `b` (as complex numbers).
 * `Rectangle(x, y, xx, yy)` creates a rectangle with opposite corners `(x,y)` and `(xx,yy)`. 
 
-## Circles
+## Circles and Disks
 
 Circles are created from a center and a radius:
 * `Circle(z, r)` is the circle centered at (complex) `z` with radius `r`. 
@@ -55,13 +58,29 @@ The function `set_fillcolor!` can be used to change the interior color of the di
 
 The symbol `Disc` is a synonmy for `Disk`.
 
-Arcs of circles are created thus:
-* `Arc(z, r, t1, t2)` creates an arc of a circle centered at `z` with radius `r` running from angle `t1` to angle `t2`. 
-* `Arc(x, y, r, t1, t2)` likewise. 
+## Arcs
 
-The `reverse` function may be applied to `Arc`s. 
+Arcs of circles are created thus with `Arc(ctr, rad, t1, t2, t3)` where:
+* `ctr` is (complex) the center of the circle,
+* `rad` is the radius of the circle,
+* `t1` is the starting angle for the arc,
+* `t2` is an angle for a point inside the arc, and
+* `t3` is the ending angle for the arc.
+
+We require the intermediante angle `t2` because simply specifying the end points of the arc does not determine which piece of the circle we are considering. 
+
+The center can also be specified as two real numbers: `Arc(x, y, rad, t1, t2, t3)`.
+
 
 ## Curves
 
 The functions `ClosedCurve` and `OpenCurve` create curves from a list of points (just like `Polygon`). 
 The curves are cubic splines through those points. 
+
+## Points
+
+Points in the plane are created with `Point(z)` or `Point(x,y)`. They are rendered as a small dot. These two functions determine the appearance of points:
+* `set_pointsize!(p, sz = 2)` sets the size of the point.
+* `set_pointcolor!(p, col = :black)` sets the color of the point. 
+
+To illustrate a point whose interior color is different from its boundary, use a `Disk`. 
