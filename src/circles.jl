@@ -13,7 +13,6 @@ struct Circle <: DrawingObject
     end
 end
 
-
 """
     Circle(z::Number, r::Real)
     Circle(x::Real, y::Real, r::Real)
@@ -21,7 +20,6 @@ end
 Create a circle centered at `z` [at `(x,y)`] with radius `r`.
 """
 Circle(x::Real, y::Real, r::Real) = Circle(complex(x, y), r)
-
 
 struct Disk <: DrawingObject
     ctr::ComplexF64
@@ -52,11 +50,11 @@ Disk(x::Real, y::Real, r::Real) = Disk(complex(x, y), r)
 Disc = Disk
 
 function draw(c::Circle)
-    draw_circle(c.ctr, c.rad; c.props...)
+    return draw_circle(c.ctr, c.rad; c.props...)
 end
 
 function draw(d::Disk)
-    draw_disc(d.ctr, d.rad; d.props...)
+    return draw_disc(d.ctr, d.rad; d.props...)
 end
 
 show(io::IO, c::Circle) = print(io, "Circle($(c.ctr), $(c.rad))")

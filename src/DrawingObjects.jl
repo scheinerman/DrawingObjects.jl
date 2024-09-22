@@ -1,7 +1,7 @@
 module DrawingObjects
 using SimpleDrawing
 
-import SimpleDrawing: draw, reverse
+import SimpleDrawing: draw
 import Base: show
 
 export DrawingObject,
@@ -26,7 +26,6 @@ export DrawingObject,
     set_pointcolor!,
     set_pointsize!
 
-
 abstract type DrawingObject end
 
 include("segments.jl")
@@ -35,7 +34,17 @@ include("circles.jl")
 include("arcs.jl")
 include("curves.jl")
 include("points.jl")
-
 include("properties.jl")
+
+function draw(os::Vector{T}) where {T<:DrawingObject}
+    if length(os) == 0
+        finish()
+        return nothing
+    end
+    for o in os
+        draw(o)
+    end
+    return finish()
+end
 
 end # module DrawingObjects

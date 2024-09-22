@@ -41,8 +41,8 @@ show(io::IO, p::Polygon) = print(io, "Polygon with $(length(p.pts)) vertices")
 
 function draw(p::Polygon)
     n = length(p.pts)
-    for k = 1:n-1
-        draw_segment(p.pts[k], p.pts[k+1]; p.props...)
+    for k in 1:(n - 1)
+        draw_segment(p.pts[k], p.pts[k + 1]; p.props...)
     end
-    draw_segment(p.pts[n], p.pts[1]; p.props...)
+    return draw_segment(p.pts[n], p.pts[1]; p.props...)
 end

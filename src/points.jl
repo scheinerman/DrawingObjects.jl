@@ -19,6 +19,5 @@ Create a point at location `a` [or `(x,y)`].
 """
 Point(x::Real, y::Real) = Point(complex(x, y))
 
-
 draw(p::Point) = draw_point(p.a; p.props...)
 show(io::IO, p::Point) = print(io, "Point($(p.a))")

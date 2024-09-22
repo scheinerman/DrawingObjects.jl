@@ -25,12 +25,9 @@ continuing through angle `t2`, and ending at angle `t3`.
 Arc(x::Real, y::Real, r::Real, t1::Real, t2::Real, t3::Real) =
     Arc(complex(x, y), r, t1, t2, t3)
 
-
-
 function draw(a::Arc)
     mark(t::Real) = a.ctr + a.rad * exp(im * t)
-    draw_arc(mark(a.t1), mark(a.t2), mark(a.t3); a.props...)
+    return draw_arc(mark(a.t1), mark(a.t2), mark(a.t3); a.props...)
 end
-
 
 show(io::IO, a::Arc) = print(io, "Arc($(a.ctr), $(a.rad), $(a.t1), $(a.t2), $(a.t3))")

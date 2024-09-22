@@ -12,7 +12,6 @@ struct OpenCurve <: DrawingObject
     end
 end
 
-
 struct ClosedCurve <: DrawingObject
     pts::Vector{ComplexF64}
     props::Dict{Symbol,Any}
@@ -26,7 +25,6 @@ struct ClosedCurve <: DrawingObject
         return o
     end
 end
-
 
 """
     ClosedCurve(plist::Vector{T}) where {T<:Number}
@@ -44,10 +42,8 @@ Draw an open curve using the given points using a cubic spline.
 """
 OpenCurve(zs...) = OpenCurve(collect(zs))
 
-
 show(io::IO, ::OpenCurve) = print(io, "OpenCurve")
 show(io::IO, ::ClosedCurve) = print(io, "ClosedCurve")
-
 
 draw(c::ClosedCurve) = draw_curve(c.pts; c.props...)
 draw(c::OpenCurve) = draw_curve(c.pts, false; c.props...)

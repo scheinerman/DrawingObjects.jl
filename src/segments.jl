@@ -23,22 +23,6 @@ Segment(x::Real, y::Real, xx::Real, yy::Real) = Segment(complex(x, y), complex(x
 show(io::IO, s::Segment) = print(io, "Segment($(s.a), $(s.b))")
 
 """
-    reverse(s::Segment)::Segment
-    reverse(a::Arc)::Arc
-
-Create a new line segment [arc] with the same end points as `s` [`a`] but in reverse order. The attributes of `s`
-are copied to the new segment [arc]. 
-"""
-function reverse(s::Segment)::Segment
-    ss = Segment(s.b, s.a)
-    d = get_attributes!(s)
-    for k in keys(d)
-        set_attribute!(ss, k, d[k])
-    end
-    return ss
-end
-
-"""
     Arrow(a::Number, b::Number)::Segment
     Arrow(x::Real, y::Real, xx::Real, yy::Real)::Segment
 
@@ -52,7 +36,6 @@ end
 
 Arrow(x::Real, y::Real, xx::Real, yy::Real)::Segment = Arrow(complex(x, y), complex(xx, yy))
 
-
 function draw(s::Segment)
-    draw_segment(s.a, s.b; s.props...)
+    return draw_segment(s.a, s.b; s.props...)
 end

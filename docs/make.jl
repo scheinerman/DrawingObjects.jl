@@ -2,4 +2,4 @@
 # julia --color=yes --project make.jl
 
 using Documenter, DrawingObjects
-makedocs(; sitename = "DrawingObjects")
+makedocs(; sitename="DrawingObjects")
