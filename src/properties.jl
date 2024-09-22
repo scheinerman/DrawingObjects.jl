@@ -64,3 +64,39 @@ set_linewidth!(o::DrawingObject, w = 1) = set_attribute!(o, :width, w)
 Assign `s` to be the line style of this object. 
 """
 set_linestyle!(o::DrawingObject, s = :solid) = set_attribute!(o, :linestyle, s)
+
+
+"""
+    set_fillcolor!(d::DrawingObject, col = :white)
+
+Change the fill color. Only applies to `Disk`s.
+"""
+set_fillcolor!(o::DrawingObject, col = :white) = set_attribute!(o, :color, col)
+
+
+
+
+# properties for Points are handled differently
+
+"""
+    set_pointsize!(p::Point, sz = 2)
+
+Set the size at which a `Point` is drawn.
+"""
+function set_pointsize!(p::Point, sz = 2)
+    if sz <= 0
+        throw(ArgumentError("Point size must be positive"))
+    end
+    set_attribute!(p, :marker, sz)
+end
+
+
+"""
+    set_pointcolor!(p::Point, col = :black)
+
+Set the color to draw a `Point`. The functions `set_fillcolor!` and `set_linecolor!` don't apply. 
+"""
+function set_pointcolor!(p::Point, col = :black)
+    set_attribute!(p, :markercolor, col)
+    set_attribute!(p, :markerstrokecolor, col)
+end
