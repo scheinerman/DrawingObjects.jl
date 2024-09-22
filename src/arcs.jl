@@ -10,7 +10,9 @@ struct Arc <: DrawingObject
         if r <= 0
             throw(ArgumentError("radius must be positive"))
         end
-        new(z, r, t1, t2, t3, _default_props())
+        o = new(z, r, t1, t2, t3, _blank_props())
+        reset_attributes!(o)
+        return o
     end
 end
 """

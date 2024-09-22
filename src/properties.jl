@@ -1,11 +1,4 @@
-# Commonly used functions to set properties of DrawingObjects
-
-function _default_props()
-    d = Dict{Symbol,Any}()
-    d[:linecolor] = :black
-    d[:color] = :white
-    return d
-end
+_blank_props() = Dict{Symbol,Any}()
 
 """
     reset_attributes!(o::DrawingObject)
@@ -13,17 +6,27 @@ end
 Reset all attributes to factory defaults. 
 """
 function reset_attributes!(o::DrawingObject)
-    for k in keys(o.props)
-        delete!(o.props, k)
-    end
-
-    d = _default_props()
-    for k in keys(d)
-        o.props[k] = d[k]
-    end
-
-    nothing
+    set_linecolor!(o)
+    set_fillcolor!(o)
+    set_linewidth!(o)
+    set_pointcolor!(o)
+    set_pointsize!(o)
 end
+
+
+# function reset_attributes!(o::DrawingObject)
+#     for k in keys(o.props)
+#         delete!(o.props, k)
+#     end
+#     set_default_attributes!(o)
+
+#     d = _default_props()
+#     for k in keys(d)
+#         o.props[k] = d[k]
+#     end
+
+#     nothing
+# end
 
 """
     get_attributes!(o::DrawingObject)
@@ -89,7 +92,7 @@ function set_pointsize!(p::Point, sz = 2)
     end
     set_attribute!(p, :marker, sz)
 end
-
+set_pointsize!(::DrawingObject, sz = 2) = nothing
 
 """
     set_pointcolor!(p::Point, col = :black)
@@ -100,3 +103,4 @@ function set_pointcolor!(p::Point, col = :black)
     set_attribute!(p, :markercolor, col)
     set_attribute!(p, :markerstrokecolor, col)
 end
+set_pointcolor!(::DrawingObject, col = :black) = nothing

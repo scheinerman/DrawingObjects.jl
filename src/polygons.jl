@@ -6,7 +6,9 @@ struct Polygon <: DrawingObject
         if length(plist) < 3
             throw(ArgumentError("Polygon must have at least 3 vertices."))
         end
-        new(plist, _default_props())
+        o = new(plist, _blank_props())
+        reset_attributes!(o)
+        return o
     end
 end
 

@@ -4,7 +4,9 @@ struct Segment <: DrawingObject
     props::Dict{Symbol,Any}
 
     function Segment(a::Number, b::Number)
-        new(a, b, _default_props())
+        o = new(a, b, _blank_props())
+        reset_attributes!(o)
+        return o
     end
 end
 

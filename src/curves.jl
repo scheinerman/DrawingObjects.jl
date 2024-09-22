@@ -6,7 +6,9 @@ struct OpenCurve <: DrawingObject
         if length(plist) < 3
             throw(ArgumentError("OpenCurve must have at least 3 vertices."))
         end
-        new(plist, _default_props())
+        o = new(plist, _blank_props())
+        reset_attributes!(o)
+        return o
     end
 end
 
@@ -19,7 +21,9 @@ struct ClosedCurve <: DrawingObject
         if length(plist) < 4
             throw(ArgumentError("ClosedCurve must have at least 4 vertices."))
         end
-        new(plist, _default_props())
+        o = new(plist, _blank_props())
+        reset_attributes!(o)
+        return o
     end
 end
 

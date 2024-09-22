@@ -3,10 +3,10 @@ struct Point <: DrawingObject
     props::Dict{Symbol,Any}
 
     function Point(a::Number)
-        d = _default_props()
+        d = _blank_props()
         d[:marker] = 2
         p = new(a, d)
-        set_pointcolor!(p)
+        reset_attributes!(p)
         return p
     end
 end

@@ -7,7 +7,9 @@ struct Circle <: DrawingObject
         if r <= 0
             throw(ArgumentError("Radius must be positive"))
         end
-        new(z, r, _default_props())
+        o = new(z, r, _blank_props())
+        reset_attributes!(o)
+        return o
     end
 end
 
@@ -30,9 +32,10 @@ struct Disk <: DrawingObject
         if r < 0
             throw(ArgumentError("Radius may not be negative"))
         end
-        d = _default_props()
-        d[:color] = :white
-        new(z, r, d)
+        d = _blank_props()
+        o = new(z, r, d)
+        reset_attributes!(o)
+        return o
     end
 end
 
