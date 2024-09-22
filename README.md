@@ -3,20 +3,20 @@
 Collection of shapes that can be drawn with [SimpleDrawing](https://github.com/scheinerman/SimpleDrawing.jl).
 
 The objects that can be viewed are as follows:
-* Line Segments: `
+* Line Segments
     * `Segment` 
     * `Arrow` (a `Segment` with an arrow at one end)
-* Circles:
+* Polygons
+    * `Polygon`
+    * `Rectangle` (convenience for axis-parallel rectangle)
+* Circles
     * `Circle` (empty interior)
     * `Disk` (filled interior)
     * `Arc` (arc of a circle)
-* Polygons:
-    * `Polygon`
-    * `Rectangle` (convenience for axis-parallel rectangle)
-* Spline curves:
+* Spline Curves
     * `OpenCurve` 
     * `ClosedCurve`
-* Points: 
+* Points
     * `Point`
 
 
@@ -24,12 +24,12 @@ The objects that can be viewed are as follows:
 
 The following functions apply to all the geometric objects defined in this module. First and foremost is `draw` which causes the object to be drawn on the screen.
 
-Each geometric object has attributes that affect how it is drawn. The following methods are provided for setting object attributes:
+Each `DrawingObject` has attributes that affect how it is drawn. The following methods are provided for setting object attributes:
 * `set_linecolor!(o, c)` assigns the line color `c` to `o`. Default: `:black`
 * `set_linewidth!(o, w)` sets the line thickness of the lines drawn to be `w`. Default: `1`. 
 * `set_linestyle!(o, style)` sets the line style of `o` to `style`. Default: `solid`. 
 * `set_pointsize!(p, sz)` pertains only to `Point`s and sets the size of the `Point`. Default: `2`.
-* `set_pointcolor!(p, col)` pertains only to `Point`s and set the color of the `Point`. Defaut: `:black`. 
+* `set_pointcolor!(p, col)` pertains only to `Point`s and sets the color of the `Point`. Defaut: `:black`. 
 
 More generally, use `set_attribute!(o, attr, val)` to set `o`'s attribute `attr` to the value `val`. Use with caution. 
 
@@ -90,7 +90,7 @@ We require the intermediante angle `t2` because simply specifying the end points
 The center can also be specified as two real numbers: `Arc(x, y, rad, t1, t2, t3)`.
 
 
-## Curves
+## Spline Curves
 
 The functions `ClosedCurve` and `OpenCurve` create curves from a list of points (just like `Polygon`). 
 The curves are cubic splines through those points. 
