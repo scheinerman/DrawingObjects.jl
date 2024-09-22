@@ -6,6 +6,11 @@ _blank_props() = Dict{Symbol,Any}()
 Reset `DrawingObject`'s attributes to factory defaults. 
 """
 function reset_attributes!(o::DrawingObject)
+    d = get_attributes!(o)
+    for k in keys(d)
+        delete!(d, k)
+    end
+
     set_linecolor!(o)
     set_fillcolor!(o)
     set_linewidth!(o)
