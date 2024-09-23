@@ -1,5 +1,5 @@
 module DrawingObjects
-using SimpleDrawing
+using SimpleDrawing, Plots
 
 import SimpleDrawing: draw
 import Base: show
@@ -11,6 +11,8 @@ export DrawingObject,
     ClosedCurve,
     Disc,
     Disk,
+    FilledPolygon,
+    FilledRectangle,
     OpenCurve,
     Point,
     Polygon,

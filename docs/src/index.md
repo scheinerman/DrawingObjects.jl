@@ -2,13 +2,12 @@
 
 Collection of shapes that can be drawn with [SimpleDrawing](https://github.com/scheinerman/SimpleDrawing.jl).
 
-The objects that can be viewed are as follows:
 * Line Segments
     * `Segment` 
     * `Arrow` (a `Segment` with an arrow at one end)
 * Polygons
-    * `Polygon`
-    * `Rectangle` (convenience for axis-parallel rectangle)
+    * `Polygon`, `FilledPolygon`
+    * `Rectangle`, `FilledRectangle` (for axis-parallel rectangles)
 * Circles
     * `Circle` (empty interior)
     * `Disk` (filled interior)
@@ -22,9 +21,14 @@ The objects that can be viewed are as follows:
 
 ## Common Methods
 
-### Drawing
 
-The following functions apply to all the geometric objects defined in this module. First and foremost is `draw` which causes the object to be drawn on the screen. The `draw` function may be applied to a list of objects in which case each object in the list is drawn in the order presented.
+The following functions apply to all the geometric objects defined in this module.
+
+### Drawing
+First and foremost is `draw` which causes the object to be drawn on the screen. 
+
+The `draw` function may be applied to a list of objects in which case each object 
+in the list is drawn in the order presented.
 
 ### Object attributes
 
@@ -62,6 +66,8 @@ Polygons are created from a list of complex numbers. Either use `Polygon([a, b, 
 The convenience function `Rectangle` creates an axis-parallel rectangle. 
 * `Rectangle(a, b)` creates a rectangle with opposite corners at `a` and `b` (as complex numbers).
 * `Rectangle(x, y, xx, yy)` creates a rectangle with opposite corners `(x,y)` and `(xx,yy)`. 
+
+The interior of a `Polygon` is blank. To create a filled-in polygon, use `FilledPolygon` (as well as `FilledRectangle`).
 
 ## Circles
 
