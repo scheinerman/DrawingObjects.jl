@@ -75,7 +75,7 @@ function FilledRectangle(x::Real, y::Real, xx::Real, yy::Real)::FilledPolygon
     d = complex(x, yy)
     return FilledPolygon(a, b, c, d)
 end
-FilledRectangle(a::Number, b::Number)::Polygon =
+FilledRectangle(a::Number, b::Number)::FilledPolygon =
     FilledRectangle(real(a), imag(a), real(b), imag(b))
 
 show(io::IO, p::Polygon) = print(io, "Polygon with $(length(p.pts)) vertices")
