@@ -44,9 +44,8 @@ be created using `FilledPolygon(0, 2im, 4)`.
 """
 FilledPolygon(zs...) = FilledPolygon(collect(zs))
 
-Polygon(xs::Vector{S}, ys::Vector{T}) where {S,T<:Real} = Polygon(_mush(xs,ys))
-FilledPolygon(xs::Vector{S}, ys::Vector{T}) where {S,T<:Real} = FilledPolygon(_mush(xs,ys))
-
+Polygon(xs::Vector{S}, ys::Vector{T}) where {S,T<:Real} = Polygon(_mush(xs, ys))
+FilledPolygon(xs::Vector{S}, ys::Vector{T}) where {S,T<:Real} = FilledPolygon(_mush(xs, ys))
 
 """
     Rectangle(a::Number, b::Number)::Polygon
