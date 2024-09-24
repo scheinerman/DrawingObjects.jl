@@ -104,4 +104,4 @@ function set_fillalpha!(o::FilledObject, α=1.0)
     return set_attribute!(o, :alpha, α)
 end
 
-set_fillalpha!(::SimpleDrawingObject, α = 1) = nothing
+set_fillalpha!(::SimpleDrawingObject, α=1) = nothing

@@ -38,9 +38,9 @@ would create a circle centered at `(2,0)`.
     * `Polygon`, `FilledPolygon`
     * `Rectangle`, `FilledRectangle` (for axis-parallel rectangles)
 * Circles
-    * `Circle` (empty interior)
-    * `FilledCircle` (filled interior)
+    * `Circle`, `FilledCircle` 
     * `Arc` (arc of a circle)
+    * `Ellipse`, `FilledEllipse`
 * Spline Curves
     * `OpenCurve` 
     * `ClosedCurve`
@@ -50,18 +50,14 @@ would create a circle centered at `(2,0)`.
 
 More information on each of these is provided below. 
 
-## Common Methods
+### Drawing objects
 
-
-The following functions apply to the geometric objects defined in this module.
-
-### Drawing
 The `draw` function causes the object to be drawn on the screen. 
 
 The `draw` function may be applied to a list (vector) of objects in which case the objects
 in the list are drawn in the order presented.
 
-### Object attributes
+## Attributes
 
 Each `SimpleDrawingObject` has attributes that affect how it is drawn. The following methods are provided for setting object attributes:
 * `set_linecolor!(o, c)` assigns the line color `c` to `o`. Default: `:black`
@@ -144,7 +140,9 @@ The center can also be specified as two real numbers: `Arc(x, y, rad, t1, t2, t3
 
 ### Ellipses
 
+Create an ellipse using `Ellipse(z, rx, ry)` where `z` is the center (complex) and `rx` and `ry` are the horizontal and vertical radii. Note that only axis-parallel ellipses can be created. Alternatively, use `Ellipse(x, y, rx, ry)` for an ellipse centered at `(x, y)`.
 
+For an ellipse with a filled-in interior, use `FilledEllipse`. 
 
 ## Spline Curves
 

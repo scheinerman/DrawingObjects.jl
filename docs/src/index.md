@@ -38,9 +38,9 @@ would create a circle centered at `(2,0)`.
     * `Polygon`, `FilledPolygon`
     * `Rectangle`, `FilledRectangle` (for axis-parallel rectangles)
 * Circles
-    * `Circle` (empty interior)
-    * `FilledCircle` (filled interior)
+    * `Circle`, `FilledCircle` 
     * `Arc` (arc of a circle)
+    * `Ellipse`, `FilledEllipse`
 * Spline Curves
     * `OpenCurve` 
     * `ClosedCurve`
@@ -50,25 +50,28 @@ would create a circle centered at `(2,0)`.
 
 More information on each of these is provided below. 
 
-## Common Methods
+### Drawing objects
 
-
-The following functions apply to the geometric objects defined in this module.
-
-### Drawing
 The `draw` function causes the object to be drawn on the screen. 
 
 The `draw` function may be applied to a list (vector) of objects in which case the objects
 in the list are drawn in the order presented.
 
-### Object attributes
+## Attributes
 
 Each `SimpleDrawingObject` has attributes that affect how it is drawn. The following methods are provided for setting object attributes:
 * `set_linecolor!(o, c)` assigns the line color `c` to `o`. Default: `:black`
 * `set_linewidth!(o, w)` sets the line thickness of the lines drawn to be `w`. Default: `1`. 
 * `set_linestyle!(o, style)` sets the line style of `o` to `style`. Default: `solid`. 
+
+These functions pertain only to `Point`s:
 * `set_pointsize!(p, sz)` pertains only to `Point`s and sets the size of the `Point`. Default: `2`.
 * `set_pointcolor!(p, col)` pertains only to `Point`s and sets the color of the `Point`. Defaut: `:black`. 
+
+These functions pertain only to filled objects:
+* `set_fillcolor!(o, col)` sets the interior color to `col`. Default: `:white`.
+* `set_fillalpha!(o, α)` sets the transparency of the fill to `α`. Note that `α = 0` is completely transparent and `α = 1` is completely opaque. Default: `1`.
+
 
 More generally, use `set_attribute!(o, attr, val)` to set `o`'s attribute `attr` to the value `val`. Use with caution. 
 
@@ -105,20 +108,20 @@ The convenience function `Rectangle` creates an axis-parallel rectangle.
 
 The interior of a `Polygon` is blank. To create a filled-in polygon, use `FilledPolygon` (as well as `FilledRectangle`).
 
-## Circles
+## Circular Shapes
+
+### Empty circles
 
 Circles are created from a center and a radius:
 * `Circle(z, r)` is the circle centered at (complex) `z` with radius `r`. 
 * `Circle(x, y, r)` is the circle centered at `(x,y)` with radius `r`. 
 
 
-### Disks
+### Filled circles
 
 Disks are called `FilledCircle`s. That is, their interior is an opaque color. Like circles, create with one of these:
 * `FilledCircle(z, r)`
 * `FilledCircle(x, y, r)`
-
-The function `set_fillcolor!` can be used to change the interior color of the disk. 
 
 The symbols `Disc` and `Disk` are synonyms for `FilledCircle`.
 
@@ -135,6 +138,11 @@ We require the intermediante angle `t2` because simply specifying the end points
 
 The center can also be specified as two real numbers: `Arc(x, y, rad, t1, t2, t3)`.
 
+### Ellipses
+
+Create an ellipse using `Ellipse(z, rx, ry)` where `z` is the center (complex) and `rx` and `ry` are the horizontal and vertical radii. Note that only axis-parallel ellipses can be created. Alternatively, use `Ellipse(x, y, rx, ry)` for an ellipse centered at `(x, y)`.
+
+For an ellipse with a filled-in interior, use `FilledEllipse`. 
 
 ## Spline Curves
 

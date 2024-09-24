@@ -38,7 +38,6 @@ struct FilledEllipse <: FilledObject
     end
 end
 
-
 """
     FilledEllipse(x::Real, y::Real, rx::Real, ry::Real)
     FilledEllipse(x::Real, y::Real, rx::Real, ry::Real)
