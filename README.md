@@ -39,11 +39,12 @@ would create a circle centered at `(2,0)`.
     * `Rectangle`, `FilledRectangle` (for axis-parallel rectangles)
 * Circles
     * `Circle` (empty interior)
-    * `Disk` (filled interior)
+    * `FilledCircle` (filled interior)
     * `Arc` (arc of a circle)
 * Spline Curves
     * `OpenCurve` 
     * `ClosedCurve`
+    * `FilledClosedCurve`
 * Points
     * `Point`
 
@@ -113,13 +114,13 @@ Circles are created from a center and a radius:
 
 ### Disks
 
-Disks are filled circles. That is, their interior is an opaque color. Like circles, create with one of these:
-* `Disk(z, r)`
-* `Disk(x, y, r)`
+Disks are called `FilledCircle`s. That is, their interior is an opaque color. Like circles, create with one of these:
+* `FilledCircle(z, r)`
+* `FilledCircle(x, y, r)`
 
 The function `set_fillcolor!` can be used to change the interior color of the disk. 
 
-The symbol `Disc` is a synonmy for `Disk`.
+The symbols `Disc` and `Disk` are synonyms for `FilledCircle`.
 
 ### Arcs
 
@@ -142,6 +143,8 @@ The curves are cubic splines through those points. The following are all equival
 * `ClosedCurve([1-2im, 3+im, 4, -1-im])`
 * `CloseCurve(1-2im, 3+im, 4, -1-im)`
 * `ClosedCuve([1,3,4,-1], [-2,1,0,-1])`
+
+We also have `FilledClosedCurve` for a closed curve whose interior is colored.
 
 ## Points
 

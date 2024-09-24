@@ -57,11 +57,12 @@ Assign `s` to be the line style of this object.
 set_linestyle!(o::SimpleDrawingObject, s=:solid) = set_attribute!(o, :linestyle, s)
 
 """
-    set_fillcolor!(d::DrawingObject, col = :white)
+    set_fillcolor!(o::FilledObject, col=:white)
 
-Change the fill color. Only applies to `Disk`s.
+Change the fill color (for `FilledObject`s)
 """
-set_fillcolor!(o::SimpleDrawingObject, col=:white) = set_attribute!(o, :color, col)
+set_fillcolor!(o::FilledObject, col=:white) = set_attribute!(o, :color, col)
+set_fillcolor!(::SimpleDrawingObject, col=:white) = nothing
 
 # properties for Points are handled differently
 

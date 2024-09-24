@@ -5,12 +5,14 @@ import SimpleDrawing: draw
 import Base: show
 
 export SimpleDrawingObject,
+    FilledObject,
     Arc,
     Arrow,
     Circle,
     ClosedCurve,
     Disc,
-    Disk,
+    FilledCircle,
+    FilledClosedCurve,
     FilledPolygon,
     FilledRectangle,
     OpenCurve,
@@ -29,6 +31,7 @@ export SimpleDrawingObject,
     set_pointsize!
 
 abstract type SimpleDrawingObject end
+abstract type FilledObject <: SimpleDrawingObject end
 
 include("segments.jl")
 include("polygons.jl")

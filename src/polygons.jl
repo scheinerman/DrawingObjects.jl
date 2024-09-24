@@ -12,7 +12,7 @@ struct Polygon <: SimpleDrawingObject
     end
 end
 
-struct FilledPolygon <: SimpleDrawingObject
+struct FilledPolygon <: FilledObject
     pts::Vector{ComplexF64}
     props::Dict{Symbol,Any}
 
