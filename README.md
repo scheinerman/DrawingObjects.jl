@@ -1,10 +1,11 @@
 # SimpleDrawingObjects
 
-The purpose of this module is to simplify the drawing of simple shapes. 
+This is a companion module to [SimpleDrawing](https://github.com/scheinerman/SimpleDrawing.jl).
+Its purpose is to simplify the drawing of basic shapes. 
 
 ## Overview
 
-This module defines some basic shapes (such as `Circle`) that can be endowed with attributes (such as line thickness and color). The underlying visualization of these objects is provided by [Plots](https://docs.juliaplots.org/stable/) with some intermediate assistance from [SimpleDrawing](https://github.com/scheinerman/SimpleDrawing.jl).
+This module defines some basic shapes (such as `Circle`) that can be endowed with attributes (such as line thickness and color). The underlying visualization of these objects is provided by [Plots](https://docs.juliaplots.org/stable/).
 
 The general workflow is to (1) create a shape, (2) specify attributes for that shape, and (3) visualize it using the `draw` function.
 
@@ -54,9 +55,9 @@ More information on each of these is provided below.
 The following functions apply to the geometric objects defined in this module.
 
 ### Drawing
-First and foremost is `draw` which causes the object to be drawn on the screen. 
+The `draw` function causes the object to be drawn on the screen. 
 
-The `draw` function may be applied to a list of objects in which case the objects
+The `draw` function may be applied to a list (vector) of objects in which case the objects
 in the list are drawn in the order presented.
 
 ### Object attributes
@@ -144,7 +145,7 @@ The curves are cubic splines through those points. The following are all equival
 
 ## Points
 
-Points in the plane are created with `Point(z)` or `Point(x,y)`. They are rendered as a small dot. These two functions determine the appearance of points:
+Points in the plane are created with `Point(z)` or `Point(x,y)`. A `Point` is rendered as a small dot. These two functions determine the appearance of points:
 * `set_pointsize!(p, sz = 2)` sets the size of the point.
 * `set_pointcolor!(p, col = :black)` sets the color of the point. 
 
