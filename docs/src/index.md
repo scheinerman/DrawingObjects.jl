@@ -54,7 +54,7 @@ More information on each of these is provided below.
 
 The `draw` function causes the object to be drawn on the screen. 
 
-The `draw` function may be applied to a list (vector) of objects in which case the objects
+The `draw` function may be applied to a list (vector) of objects, in which case the objects
 in the list are drawn in the order presented.
 
 ## Attributes
@@ -78,7 +78,6 @@ More generally, use `set_attribute!(o, attr, val)` to set `o`'s attribute `attr`
 Use `reset_attributes!(o)` to return `o` to its "factory default" attributes. 
 
 The function `get_attributes(o)` returns a view into `o`'s attribute dictionary which can then be directly manipulated (if you dare).
-
 
 More information on object attributes can be found in the [Plots](https://docs.juliaplots.org/stable/generated/attributes_series/) documentation. 
 
@@ -110,16 +109,13 @@ The interior of a `Polygon` is blank. To create a filled-in polygon, use `Filled
 
 ## Circular Shapes
 
-### Empty circles
-
+### Circles
 Circles are created from a center and a radius:
 * `Circle(z, r)` is the circle centered at (complex) `z` with radius `r`. 
 * `Circle(x, y, r)` is the circle centered at `(x,y)` with radius `r`. 
 
 
-### Filled circles
-
-Disks are called `FilledCircle`s. That is, their interior is an opaque color. Like circles, create with one of these:
+A `FilledCircle` is a circle whose interior has a color. Like circles, create with one of these:
 * `FilledCircle(z, r)`
 * `FilledCircle(x, y, r)`
 
@@ -127,7 +123,7 @@ The symbols `Disc` and `Disk` are synonyms for `FilledCircle`.
 
 ### Arcs
 
-Arcs of circles are created thus with `Arc(ctr, rad, t1, t2, t3)` where:
+Arcs of circles are created with `Arc(ctr, rad, t1, t2, t3)` where:
 * `ctr` is (complex) the center of the circle,
 * `rad` is the radius of the circle,
 * `t1` is the starting angle for the arc,
