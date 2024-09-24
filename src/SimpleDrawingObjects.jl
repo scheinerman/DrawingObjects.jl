@@ -11,8 +11,10 @@ export SimpleDrawingObject,
     Circle,
     ClosedCurve,
     Disc,
+    Ellipse,
     FilledCircle,
     FilledClosedCurve,
+    FilledEllipse,
     FilledPolygon,
     FilledRectangle,
     OpenCurve,
@@ -20,9 +22,10 @@ export SimpleDrawingObject,
     Polygon,
     Rectangle,
     Segment,
-    get_attributes!,
+    get_attributes,
     reset_attributes!,
     set_attribute!,
+    set_fillalpha!,
     set_fillcolor!,
     set_linecolor!,
     set_linestyle!,
@@ -36,6 +39,7 @@ abstract type FilledObject <: SimpleDrawingObject end
 include("segments.jl")
 include("polygons.jl")
 include("circles.jl")
+include("ellipses.jl")
 include("arcs.jl")
 include("curves.jl")
 include("points.jl")

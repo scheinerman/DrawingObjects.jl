@@ -6,13 +6,14 @@ _blank_props() = Dict{Symbol,Any}()
 Reset `DrawingObject`'s attributes to factory defaults. 
 """
 function reset_attributes!(o::SimpleDrawingObject)
-    d = get_attributes!(o)
+    d = get_attributes(o)
     for k in keys(d)
         delete!(d, k)
     end
 
     set_linecolor!(o)
     set_fillcolor!(o)
+    set_fillalpha!(o)
     set_linewidth!(o)
     set_pointcolor!(o)
     set_pointsize!(o)
@@ -20,11 +21,11 @@ function reset_attributes!(o::SimpleDrawingObject)
 end
 
 """
-    get_attributes!(o::DrawingObject)
+    get_attributes(o::DrawingObject)
 
 Give access to the attributes dictionary for `o`.
 """
-get_attributes!(o::SimpleDrawingObject)::Dict = o.props
+get_attributes(o::SimpleDrawingObject)::Dict = o.props
 
 """
     set_attribute!(o::DrawingObject, attr::Symbol, val)
@@ -89,3 +90,18 @@ function set_pointcolor!(p::Point, col=:black)
     return set_attribute!(p, :markerstrokecolor, col)
 end
 set_pointcolor!(::SimpleDrawingObject, col=:black) = nothing
+
+"""
+    set_fillalpha!(o, α=1.0)
+
+TBW
+"""
+function set_fillalpha!(o::FilledObject, α=1.0)
+    if α < 0 || α > 1
+        throw(ArgumentError("α must satisfy 0 ≤ α ≤ 1"))
+    end
+
+    return set_attribute!(o, :alpha, α)
+end
+
+set_fillalpha!(::SimpleDrawingObject, α = 1) = nothing
