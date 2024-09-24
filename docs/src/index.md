@@ -1,6 +1,34 @@
 # DrawingObjects
 
-Collection of shapes that can be drawn with [SimpleDrawing](https://github.com/scheinerman/SimpleDrawing.jl).
+The purpose of this module is to simplify the drawing of simple shapes. 
+
+## Overview
+
+This module defines some basic shapes (such as `Circle`) that can be endowed with attributes (such as line thickness and color). The underlying visualization of these objects is provided by [Plots](https://docs.juliaplots.org/stable/) with some intermediate assistance from [SimpleDrawing](https://github.com/scheinerman/SimpleDrawing.jl).
+
+The general workflow is to (1) create a shape, (2) specify attributes for that shape, and (3) visualize it using the `draw` function.
+
+For example:
+```
+using DrawingObjects, SimpleDrawing
+
+C = Circle(2-im, 3)         # circle centered at (2,-1) with radius 3
+set_linecolor!(C, :red)     
+set_linewidth!(C, 2)
+set_linestyle!(C, :dash)
+newdraw()                   # erases the drawing window (from SimpleDrawing)
+draw(C)                     # draws the circle
+finish()                    # remove any axes, legends, etc. and set the aspect ratio to 1
+```
+Here is the result:
+
+![](circle_example.png)
+
+Note that the center of the circle is specified as a complex number. Alternatively, we 
+could have used `Circle(2,-1,3)`. Note that `Circle(2,3)` is understood as `Circle(2+0im,3)` and 
+would create a circle centered at `(2,0)`.
+
+### List of supported objects  
 
 * Line Segments
     * `Segment` 
@@ -18,17 +46,18 @@ Collection of shapes that can be drawn with [SimpleDrawing](https://github.com/s
 * Points
     * `Point`
 
+More information on each of these is provided below. 
 
 ## Common Methods
 
 
-The following functions apply to all the geometric objects defined in this module.
+The following functions apply to the geometric objects defined in this module.
 
 ### Drawing
 First and foremost is `draw` which causes the object to be drawn on the screen. 
 
-The `draw` function may be applied to a list of objects in which case each object 
-in the list is drawn in the order presented.
+The `draw` function may be applied to a list of objects in which case the objects
+in the list are drawn in the order presented.
 
 ### Object attributes
 
@@ -61,7 +90,12 @@ Create a new line segment using one of these:
 
 ## Polygons
 
-Polygons are created from a list of complex numbers. Either use `Polygon([a, b, c])` or `Polygon(a,b,c)`.
+Polygons are created from a list of complex numbers. The following are equivalent
+* `Polygon([1-2im, 3+im, 4, -1-im])`
+* `Polygon(1-2im, 3+im, 4, -1-im)`
+* `Polygon([1,3,4,-1], [-2,1,0,-1])`
+
+
 
 The convenience function `Rectangle` creates an axis-parallel rectangle. 
 * `Rectangle(a, b)` creates a rectangle with opposite corners at `a` and `b` (as complex numbers).
@@ -103,7 +137,10 @@ The center can also be specified as two real numbers: `Arc(x, y, rad, t1, t2, t3
 ## Spline Curves
 
 The functions `ClosedCurve` and `OpenCurve` create curves from a list of points (just like `Polygon`). 
-The curves are cubic splines through those points. 
+The curves are cubic splines through those points. The following are all equivalent:
+* `ClosedCurve([1-2im, 3+im, 4, -1-im])`
+* `CloseCurve(1-2im, 3+im, 4, -1-im)`
+* `ClosedCuve([1,3,4,-1], [-2,1,0,-1])`
 
 ## Points
 

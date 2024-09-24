@@ -42,6 +42,10 @@ Draw an open curve using the given points using a cubic spline.
 """
 OpenCurve(zs...) = OpenCurve(collect(zs))
 
+ClosedCurve(xs::Vector{S}, ys::Vector{T}) where {S,T <: Real} = ClosedCurve(_mush(xs,ys))
+OpenCurve(xs::Vector{S}, ys::Vector{T}) where {S,T <: Real} = OpenCurve(_mush(xs,ys))
+
+
 show(io::IO, ::OpenCurve) = print(io, "OpenCurve")
 show(io::IO, ::ClosedCurve) = print(io, "ClosedCurve")
 

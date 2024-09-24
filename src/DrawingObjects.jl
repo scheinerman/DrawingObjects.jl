@@ -49,4 +49,17 @@ function draw(os::Vector{T}) where {T<:DrawingObject}
     return finish()
 end
 
+"""
+    _mush(xs::Vector{S}, ys::Vector{T}) where {S,T <: Real}
+
+Combine lists of real numbers into a list of complex numbers. 
+"""
+function _mush(xs::Vector{S}, ys::Vector{T}) where {S,T<:Real}
+    if length(xs) != length(ys)
+        throw(ArgumentError("The two lists of numbers must be the same length"))
+    end
+
+    return xs + im * ys
+end
+
 end # module DrawingObjects
