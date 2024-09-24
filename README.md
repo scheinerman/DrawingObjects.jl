@@ -1,4 +1,4 @@
-# DrawingObjects
+# SimpleDrawingObjects
 
 The purpose of this module is to simplify the drawing of simple shapes. 
 
@@ -10,7 +10,7 @@ The general workflow is to (1) create a shape, (2) specify attributes for that s
 
 For example:
 ```
-using DrawingObjects, SimpleDrawing
+using SimpleDrawingObjects, SimpleDrawing
 
 C = Circle(2-im, 3)         # circle centered at (2,-1) with radius 3
 set_linecolor!(C, :red)     

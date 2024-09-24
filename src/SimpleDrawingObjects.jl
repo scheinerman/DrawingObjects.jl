@@ -1,4 +1,4 @@
-module DrawingObjects
+module SimpleDrawingObjects
 using SimpleDrawing, Plots
 
 import SimpleDrawing: draw

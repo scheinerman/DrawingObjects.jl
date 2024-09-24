@@ -1,4 +1,4 @@
 using Test
-using DrawingObjects
+using SimpleDrawingObjects
 
 @test true

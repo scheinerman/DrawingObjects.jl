@@ -1,4 +1,4 @@
-using SimpleDrawing, DrawingObjects
+using SimpleDrawing, SimpleDrawingObjects
 
 function draw_segment_example()
     newdraw()
