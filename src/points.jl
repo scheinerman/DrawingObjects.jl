@@ -1,4 +1,4 @@
-struct Point <: DrawingObject
+struct Point <: SimpleDrawingObject
     a::Complex{Float64}
     props::Dict{Symbol,Any}
 

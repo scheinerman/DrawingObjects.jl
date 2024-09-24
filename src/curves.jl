@@ -1,4 +1,4 @@
-struct OpenCurve <: DrawingObject
+struct OpenCurve <: SimpleDrawingObject
     pts::Vector{ComplexF64}
     props::Dict{Symbol,Any}
 
@@ -12,7 +12,7 @@ struct OpenCurve <: DrawingObject
     end
 end
 
-struct ClosedCurve <: DrawingObject
+struct ClosedCurve <: SimpleDrawingObject
     pts::Vector{ComplexF64}
     props::Dict{Symbol,Any}
 

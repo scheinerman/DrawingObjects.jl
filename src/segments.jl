@@ -1,4 +1,4 @@
-struct Segment <: DrawingObject
+struct Segment <: SimpleDrawingObject
     a::Complex{Float64}
     b::Complex{Float64}
     props::Dict{Symbol,Any}

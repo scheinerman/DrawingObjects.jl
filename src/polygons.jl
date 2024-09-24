@@ -1,4 +1,4 @@
-struct Polygon <: DrawingObject
+struct Polygon <: SimpleDrawingObject
     pts::Vector{ComplexF64}
     props::Dict{Symbol,Any}
 
@@ -12,7 +12,7 @@ struct Polygon <: DrawingObject
     end
 end
 
-struct FilledPolygon <: DrawingObject
+struct FilledPolygon <: SimpleDrawingObject
     pts::Vector{ComplexF64}
     props::Dict{Symbol,Any}
 

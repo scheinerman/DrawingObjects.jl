@@ -1,4 +1,4 @@
-struct Arc <: DrawingObject
+struct Arc <: SimpleDrawingObject
     ctr::ComplexF64
     rad::Float64
     t1::Float64

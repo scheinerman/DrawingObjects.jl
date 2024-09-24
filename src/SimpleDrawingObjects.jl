@@ -4,7 +4,7 @@ using SimpleDrawing, Plots
 import SimpleDrawing: draw
 import Base: show
 
-export DrawingObject,
+export SimpleDrawingObject,
     Arc,
     Arrow,
     Circle,
@@ -28,7 +28,7 @@ export DrawingObject,
     set_pointcolor!,
     set_pointsize!
 
-abstract type DrawingObject end
+abstract type SimpleDrawingObject end
 
 include("segments.jl")
 include("polygons.jl")
@@ -38,7 +38,7 @@ include("curves.jl")
 include("points.jl")
 include("properties.jl")
 
-function draw(os::Vector{T}) where {T<:DrawingObject}
+function draw(os::Vector{T}) where {T<:SimpleDrawingObject}
     if length(os) == 0
         finish()
         return nothing

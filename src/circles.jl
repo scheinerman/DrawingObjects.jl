@@ -1,4 +1,4 @@
-struct Circle <: DrawingObject
+struct Circle <: SimpleDrawingObject
     ctr::ComplexF64
     rad::Float64
     props::Dict{Symbol,Any}
@@ -21,7 +21,7 @@ Create a circle centered at `z` [at `(x,y)`] with radius `r`.
 """
 Circle(x::Real, y::Real, r::Real) = Circle(complex(x, y), r)
 
-struct Disk <: DrawingObject
+struct Disk <: SimpleDrawingObject
     ctr::ComplexF64
     rad::Float64
     props::Dict{Symbol,Any}

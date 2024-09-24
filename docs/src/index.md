@@ -1,4 +1,4 @@
-# DrawingObjects
+# SimpleDrawingObjects
 
 The purpose of this module is to simplify the drawing of simple shapes. 
 
@@ -10,7 +10,7 @@ The general workflow is to (1) create a shape, (2) specify attributes for that s
 
 For example:
 ```
-using DrawingObjects, SimpleDrawing
+using SimpleDrawingObjects, SimpleDrawing
 
 C = Circle(2-im, 3)         # circle centered at (2,-1) with radius 3
 set_linecolor!(C, :red)     
@@ -61,7 +61,7 @@ in the list are drawn in the order presented.
 
 ### Object attributes
 
-Each `DrawingObject` has attributes that affect how it is drawn. The following methods are provided for setting object attributes:
+Each `SimpleDrawingObject` has attributes that affect how it is drawn. The following methods are provided for setting object attributes:
 * `set_linecolor!(o, c)` assigns the line color `c` to `o`. Default: `:black`
 * `set_linewidth!(o, w)` sets the line thickness of the lines drawn to be `w`. Default: `1`. 
 * `set_linestyle!(o, style)` sets the line style of `o` to `style`. Default: `solid`. 

@@ -5,7 +5,7 @@ _blank_props() = Dict{Symbol,Any}()
 
 Reset `DrawingObject`'s attributes to factory defaults. 
 """
-function reset_attributes!(o::DrawingObject)
+function reset_attributes!(o::SimpleDrawingObject)
     d = get_attributes!(o)
     for k in keys(d)
         delete!(d, k)
@@ -24,14 +24,14 @@ end
 
 Give access to the attributes dictionary for `o`.
 """
-get_attributes!(o::DrawingObject)::Dict = o.props
+get_attributes!(o::SimpleDrawingObject)::Dict = o.props
 
 """
     set_attribute!(o::DrawingObject, attr::Symbol, val)
 
 Assign the value `val` to the object's attribute `attr`.
 """
-function set_attribute!(o::DrawingObject, attr::Symbol, val)
+function set_attribute!(o::SimpleDrawingObject, attr::Symbol, val)
     return o.props[attr] = val
 end
 
@@ -40,28 +40,28 @@ end
 
 Assign color `c` to this object.
 """
-set_linecolor!(o::DrawingObject, c=:black) = set_attribute!(o, :linecolor, c)
+set_linecolor!(o::SimpleDrawingObject, c=:black) = set_attribute!(o, :linecolor, c)
 
 """
     set_width!(o::DrawingObject, w = 1)
 
 Assign line width `w` to this object. 
 """
-set_linewidth!(o::DrawingObject, w=1) = set_attribute!(o, :width, w)
+set_linewidth!(o::SimpleDrawingObject, w=1) = set_attribute!(o, :width, w)
 
 """
     set_linestyle!(o::DrawingObject, s = :solid)
 
 Assign `s` to be the line style of this object. 
 """
-set_linestyle!(o::DrawingObject, s=:solid) = set_attribute!(o, :linestyle, s)
+set_linestyle!(o::SimpleDrawingObject, s=:solid) = set_attribute!(o, :linestyle, s)
 
 """
     set_fillcolor!(d::DrawingObject, col = :white)
 
 Change the fill color. Only applies to `Disk`s.
 """
-set_fillcolor!(o::DrawingObject, col=:white) = set_attribute!(o, :color, col)
+set_fillcolor!(o::SimpleDrawingObject, col=:white) = set_attribute!(o, :color, col)
 
 # properties for Points are handled differently
 
@@ -76,7 +76,7 @@ function set_pointsize!(p::Point, sz=2)
     end
     return set_attribute!(p, :marker, sz)
 end
-set_pointsize!(::DrawingObject, sz=2) = nothing
+set_pointsize!(::SimpleDrawingObject, sz=2) = nothing
 
 """
     set_pointcolor!(p::Point, col = :black)
@@ -87,4 +87,4 @@ function set_pointcolor!(p::Point, col=:black)
     set_attribute!(p, :markercolor, col)
     return set_attribute!(p, :markerstrokecolor, col)
 end
-set_pointcolor!(::DrawingObject, col=:black) = nothing
+set_pointcolor!(::SimpleDrawingObject, col=:black) = nothing

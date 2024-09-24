@@ -61,7 +61,7 @@ in the list are drawn in the order presented.
 
 ### Object attributes
 
-Each `DrawingObject` has attributes that affect how it is drawn. The following methods are provided for setting object attributes:
+Each `SimpleDrawingObject` has attributes that affect how it is drawn. The following methods are provided for setting object attributes:
 * `set_linecolor!(o, c)` assigns the line color `c` to `o`. Default: `:black`
 * `set_linewidth!(o, w)` sets the line thickness of the lines drawn to be `w`. Default: `1`. 
 * `set_linestyle!(o, style)` sets the line style of `o` to `style`. Default: `solid`. 
