@@ -26,6 +26,14 @@ struct ClosedCurve <: SimpleDrawingObject
     end
 end
 
+"""
+    ClosedCurve(plist::Vector{T}) where {T<:Number}
+    ClosedCurve(zs...)
+
+Draw a closed curve using the given points using a cubic spline. 
+"""
+ClosedCurve(zs...) = ClosedCurve(collect(zs))
+
 struct FilledClosedCurve <: FilledObject
     pts::Vector{ComplexF64}
     props::Dict{Symbol,Any}
@@ -41,12 +49,12 @@ struct FilledClosedCurve <: FilledObject
 end
 
 """
-    ClosedCurve(plist::Vector{T}) where {T<:Number}
-    ClosedCurve(zs...)
+    FilledClosedCurve(plist::Vector{T}) where {T<:Number}
+    FilledClosedCurve(zs...)
 
-Draw a closed curve using the given points using a cubic spline. 
+Draw a closed curve using the given points using a cubic spline whose interior is colored.
 """
-ClosedCurve(zs...) = ClosedCurve(collect(zs))
+FilledClosedCurve(zs...) = ClosedCurve(collect(zs))
 
 """
     OpenCurve(plist::Vector{T}) where {T<:Number}

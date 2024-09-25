@@ -33,7 +33,18 @@ export SimpleDrawingObject,
     set_pointcolor!,
     set_pointsize!
 
+"""
+    SimpleDrawingObject
+
+Parent abstract type for all geometric objects defined in `SimpleDrawingObjects`.
+"""
 abstract type SimpleDrawingObject end
+
+"""
+    FilledObject
+
+Subtype of `SimpleDrawingObject` for geometric objects that can be filled with color. 
+"""
 abstract type FilledObject <: SimpleDrawingObject end
 
 include("segments.jl")

@@ -1,9 +1,9 @@
 _blank_props() = Dict{Symbol,Any}()
 
 """
-    reset_attributes!(o::DrawingObject)
+    reset_attributes!(o::SimpleDrawingObject)
 
-Reset `DrawingObject`'s attributes to factory defaults. 
+Reset `o`'s attributes to factory defaults. 
 """
 function reset_attributes!(o::SimpleDrawingObject)
     d = get_attributes(o)
@@ -21,14 +21,14 @@ function reset_attributes!(o::SimpleDrawingObject)
 end
 
 """
-    get_attributes(o::DrawingObject)
+    get_attributes(o::SimpleDrawingObject)::Dict
 
 Give access to the attributes dictionary for `o`.
 """
 get_attributes(o::SimpleDrawingObject)::Dict = o.props
 
 """
-    set_attribute!(o::DrawingObject, attr::Symbol, val)
+    set_attribute!(o::SimpleDrawingObject, attr::Symbol, val)
 
 Assign the value `val` to the object's attribute `attr`.
 """
@@ -37,21 +37,21 @@ function set_attribute!(o::SimpleDrawingObject, attr::Symbol, val)
 end
 
 """
-    set_color!(o::DrawingObject, c = :black)
+    set_linecolor!(o::SimpleDrawingObject, c=:black)
 
-Assign color `c` to this object.
+Assign color `c` to the lines in this object.
 """
 set_linecolor!(o::SimpleDrawingObject, c=:black) = set_attribute!(o, :linecolor, c)
 
 """
-    set_width!(o::DrawingObject, w = 1)
+    set_linewidth!(o::SimpleDrawingObject, w=1)
 
 Assign line width `w` to this object. 
 """
 set_linewidth!(o::SimpleDrawingObject, w=1) = set_attribute!(o, :width, w)
 
 """
-    set_linestyle!(o::DrawingObject, s = :solid)
+    set_linestyle!(o::SimpleDrawingObject, s=:solid)
 
 Assign `s` to be the line style of this object. 
 """
@@ -92,9 +92,9 @@ end
 set_pointcolor!(::SimpleDrawingObject, col=:black) = nothing
 
 """
-    set_fillalpha!(o, α=1.0)
+    set_fillalpha!(o::FilledObject, α=1.0)
 
-TBW
+Set the transparency of `o` to `α` with 1.0 being completely opaque and 0.0 being fully transparent.
 """
 function set_fillalpha!(o::FilledObject, α=1.0)
     if α < 0 || α > 1
