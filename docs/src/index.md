@@ -156,4 +156,4 @@ Points in the plane are created with `Point(z)` or `Point(x,y)`. A `Point` is re
 * `set_pointsize!(p, sz = 2)` sets the size of the point.
 * `set_pointcolor!(p, col = :black)` sets the color of the point. 
 
-To illustrate a point whose interior color is different from its boundary, use a `Disk`. 
+To illustrate a point whose interior color is different from its boundary, use a `FilledCircle`. 
