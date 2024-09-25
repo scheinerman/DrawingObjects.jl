@@ -17,9 +17,9 @@ function draw_segment_example()
     return finish()
 end
 
-function pentagram(with_points::Bool=false)
+function pentagram(with_points::Bool = false)
     newdraw()
-    ts = [(4k * pi / 5 + pi / 2) for k in 0:4]
+    ts = [(4k * pi / 5 + pi / 2) for k = 0:4]
     zs = [exp(t * im) for t in ts]
     p = Polygon(zs)
     draw(p)
@@ -35,9 +35,9 @@ function pentagram(with_points::Bool=false)
     return finish()
 end
 
-function spirograph(n::Int=11, s::Int=5, with_points::Bool=false)
+function spirograph(n::Int = 11, s::Int = 5, with_points::Bool = false)
     newdraw()
-    ts = [pi / 2 + s * k * 2pi / n for k in 1:n]
+    ts = [pi / 2 + s * k * 2pi / n for k = 1:n]
     zs = [exp(t * im) for t in ts]
     p = ClosedCurve(zs)
     draw(p)

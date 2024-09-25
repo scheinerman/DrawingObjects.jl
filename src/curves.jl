@@ -73,4 +73,4 @@ show(io::IO, ::FilledClosedCurve) = print(io, "FilledClosedCurve")
 
 draw(c::ClosedCurve) = draw_curve(c.pts; c.props...)
 draw(c::OpenCurve) = draw_curve(c.pts, false; c.props...)
-draw(c::FilledClosedCurve) = draw_curve(c.pts; seriestype=[:shape], c.props...)
+draw(c::FilledClosedCurve) = draw_curve(c.pts; seriestype = [:shape], c.props...)

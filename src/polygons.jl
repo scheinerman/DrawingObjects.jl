@@ -83,8 +83,8 @@ show(io::IO, p::FilledPolygon) = print(io, "FilledPolygon with $(length(p.pts)) 
 
 function draw(p::Polygon)
     n = length(p.pts)
-    for k in 1:(n - 1)
-        draw_segment(p.pts[k], p.pts[k + 1]; p.props...)
+    for k = 1:(n-1)
+        draw_segment(p.pts[k], p.pts[k+1]; p.props...)
     end
     return draw_segment(p.pts[n], p.pts[1]; p.props...)
 end

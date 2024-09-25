@@ -2,7 +2,7 @@
 # julia --color=yes --project make.jl
 
 using Documenter, SimpleDrawingObjects
-makedocs(
+makedocs(;
     pages = ["index.md", "Function Documentation" => "docstrings.md"],
     sitename = "SimpleDrawingObjects",
 )

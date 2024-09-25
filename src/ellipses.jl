@@ -51,7 +51,7 @@ function draw(e::Ellipse)
 end
 
 function draw(e::FilledEllipse)
-    return draw_ellipse(e.ctr, e.rx, e.ry; seriestype=[:shape], e.props...)
+    return draw_ellipse(e.ctr, e.rx, e.ry; seriestype = [:shape], e.props...)
 end
 
 show(io::IO, e::Ellipse) = print(io, "Ellipse($(e.ctr), $(e.rx), $(e.ry))")
