@@ -54,7 +54,7 @@ include("ellipses.jl")
 include("arcs.jl")
 include("curves.jl")
 include("points.jl")
-include("properties.jl")
+include("attributes.jl")
 
 function draw(os::Vector{T}) where {T<:SimpleDrawingObject}
     if length(os) == 0

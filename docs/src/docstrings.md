@@ -67,3 +67,16 @@ FilledClosedCurve
 ```@docs 
 Point
 ```
+
+
+## Types
+
+```@docs
+SimpleDrawingObject
+FilledObject
+```
+
+## Index
+
+```@index
+```
