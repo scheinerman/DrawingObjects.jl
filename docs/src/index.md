@@ -153,7 +153,13 @@ We also have `FilledClosedCurve` for a closed curve whose interior is colored.
 ## Points
 
 Points in the plane are created with `Point(z)` or `Point(x,y)`. A `Point` is rendered as a small dot. These two functions determine the appearance of points:
-* `set_pointsize!(p, sz = 2)` sets the size of the point.
+* `set_pointsize!(p, sz = 3)` sets the size of the point.
 * `set_pointcolor!(p, col = :black)` sets the color of the point. 
 
-To illustrate a point whose interior color is different from its boundary, use a `FilledCircle`. 
+Finer control over point appearance can be achieved using `set_fillcolor!` and `set_linecolor!` 
+for points. The function `set_pointcolor!` sets the fill and the line of the `Point` to the same color. 
+
+
+
+
+

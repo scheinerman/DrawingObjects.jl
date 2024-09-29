@@ -65,14 +65,17 @@ Change the fill color (for `FilledObject`s)
 set_fillcolor!(o::FilledObject, col = :white) = set_attribute!(o, :color, col)
 set_fillcolor!(::SimpleDrawingObject, col = :white) = nothing
 
+
+
+
 # properties for Points are handled differently
 
 """
-    set_pointsize!(p::Point, sz = 2)
+    set_pointsize!(p::Point, sz = _default_point_size)
 
 Set the size at which a `Point` is drawn.
 """
-function set_pointsize!(p::Point, sz = 2)
+function set_pointsize!(p::Point, sz = _default_point_size)
     if sz <= 0
         throw(ArgumentError("Point size must be positive"))
     end
@@ -90,6 +93,12 @@ function set_pointcolor!(p::Point, col = :black)
     return set_attribute!(p, :markerstrokecolor, col)
 end
 set_pointcolor!(::SimpleDrawingObject, col = :black) = nothing
+
+
+set_fillcolor!(p::Point, col = :black) = set_attribute!(p, :markercolor, col)
+set_linecolor!(p::Point, col = :black) = set_attribute!(p, :markerstrokecolor, col)
+
+
 
 """
     set_fillalpha!(o::FilledObject, α=1.0)
