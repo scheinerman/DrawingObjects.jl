@@ -25,5 +25,6 @@ pts = [2, 3 - im, 4 + im, -2im, 0]
 @test test_attr(ClosedCurve(pts))
 @test test_attr(OpenCurve(pts))
 @test test_attr(FilledClosedCurve(pts))
+@test test_attr(PolygonalPath(pts))
 @test test_attr(Ellipse(1 - im, 2, 3))
 @test test_attr(FilledEllipse(1 - im, 2, 3))

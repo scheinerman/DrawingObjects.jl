@@ -45,6 +45,7 @@ The advantage of using a `SimpleDrawingObject` is that its appearance attributes
 * Polygons
     * `Polygon`, `FilledPolygon`
     * `Rectangle`, `FilledRectangle` (for axis-parallel rectangles)
+    * `PolygonalPath` (unfilled, not closed)
 * Circles
     * `Circle`, `FilledCircle` 
     * `Arc` (arc of a circle)
@@ -114,6 +115,10 @@ The convenience function `Rectangle` creates an axis-parallel rectangle.
 * `Rectangle(x, y, xx, yy)` creates a rectangle with opposite corners `(x,y)` and `(xx,yy)`. 
 
 The interior of a `Polygon` is blank. To create a filled-in polygon, use `FilledPolygon` (as well as `FilledRectangle`).
+
+A polygon with `n` sides is defined using `n` points. The last point in the list is joined to the
+first to create a closed figure. We also provide this function:
+* `PolygonalPath(pts)` to create a polygonal path in which the last point is not joined to the first.
 
 ## Circular Shapes
 

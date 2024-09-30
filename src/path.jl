@@ -19,6 +19,8 @@ end
 Create a polygonal path through the specified points. 
 """
 PolygonalPath(xs::Vector{S}, ys::Vector{T}) where {S,T<:Real} = PolygonalPath(_mush(xs, ys))
+PolygonalPath(zs...) = PolygonalPath(collect(zs))
+
 
 draw(p::PolygonalPath) = plot!(real(p.pts), imag(p.pts); p.props...)
 show(io::IO, ::PolygonalPath) = print(io, "PolygonalPath")

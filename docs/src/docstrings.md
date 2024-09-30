@@ -36,6 +36,7 @@ Arrow
 ```@docs
 Polygon
 FilledPolygon
+PolygonalPath
 Rectangle
 FilledRectangle
 ```
