@@ -3,23 +3,21 @@
 This is a companion module to [SimpleDrawing](https://github.com/scheinerman/SimpleDrawing.jl).
 Its purpose is to simplify the drawing of basic shapes. 
 
-## Overview
+## Introduction
 
 This module defines some basic shapes (such as `Circle`) that can be endowed with attributes (such as line thickness and color). The underlying visualization of these objects is provided by [Plots](https://docs.juliaplots.org/stable/).
 
-The general workflow is to (1) create a shape, (2) specify attributes for that shape, and (3) visualize it using the `draw` function.
+The general workflow is to (1) create a shape, (2) specify appearance attributes for that shape, and (3) visualize it using the `draw` function.
 
-For example:
+### Example
 ```
 using SimpleDrawingObjects, SimpleDrawing
-
 C = Circle(2-im, 3)         # circle centered at (2,-1) with radius 3
 set_linecolor!(C, :red)     
 set_linewidth!(C, 2)
 set_linestyle!(C, :dash)
 newdraw()                   # erases the drawing window (from SimpleDrawing)
 draw(C)                     # draws the circle
-finish()                    # remove any axes, legends, etc. and set the aspect ratio to 1
 ```
 Here is the result:
 
@@ -29,7 +27,17 @@ Note that the center of the circle is specified as a complex number. Alternative
 could have used `Circle(2,-1,3)`. Note that `Circle(2,3)` is understood as `Circle(2+0im,3)` and 
 would create a circle centered at `(2,0)`.
 
-### List of supported objects  
+### Comparison
+
+The same image (only using `SimpleDrawing`) could be accomplished like this:
+```
+draw_circle(2-im, 3, color=:red, linestyle=:dash, width=2)
+```
+
+The advantage of using a `SimpleDrawingObject` is that its appearance attributes (color, line width, etc.) can be modified.
+
+
+## Supported Objects  
 
 * Line Segments
     * `Segment` 
@@ -50,7 +58,7 @@ would create a circle centered at `(2,0)`.
 
 More information on each of these is provided below. 
 
-### Drawing objects
+## Drawing objects
 
 The `draw` function causes the object to be drawn on the screen. 
 
