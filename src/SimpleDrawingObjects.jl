@@ -20,6 +20,7 @@ export SimpleDrawingObject,
     OpenCurve,
     Point,
     Polygon,
+    PolygonalPath,
     Rectangle,
     Segment,
     get_attributes,
@@ -49,6 +50,7 @@ abstract type FilledObject <: SimpleDrawingObject end
 
 include("segments.jl")
 include("polygons.jl")
+include("path.jl")
 include("circles.jl")
 include("ellipses.jl")
 include("arcs.jl")

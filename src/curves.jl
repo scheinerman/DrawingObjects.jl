@@ -30,7 +30,7 @@ end
     ClosedCurve(plist::Vector{T}) where {T<:Number}
     ClosedCurve(zs...)
 
-Draw a closed curve using the given points using a cubic spline. 
+Create a closed curve using the given points using a cubic spline. 
 """
 ClosedCurve(zs...) = ClosedCurve(collect(zs))
 
@@ -52,7 +52,7 @@ end
     FilledClosedCurve(plist::Vector{T}) where {T<:Number}
     FilledClosedCurve(zs...)
 
-Draw a closed curve using the given points using a cubic spline whose interior is colored.
+Create a closed curve using the given points using a cubic spline whose interior is colored.
 """
 FilledClosedCurve(zs...) = ClosedCurve(collect(zs))
 
@@ -60,7 +60,7 @@ FilledClosedCurve(zs...) = ClosedCurve(collect(zs))
     OpenCurve(plist::Vector{T}) where {T<:Number}
     OpenCurve(zs...)
 
-Draw an open curve using the given points using a cubic spline. 
+Create an open curve using the given points using a cubic spline. 
 """
 OpenCurve(zs...) = OpenCurve(collect(zs))
 
